@@ -1,0 +1,43 @@
+.s4 {
+    padding: 0 4px 0 0;
+}
+
+.s8 {
+    padding: 0 8px 0 0;
+}
+
+.s12 {
+    padding: 0 12px 0 0;
+}
+
+.s16 {
+    padding: 0 16px 0 0;
+}
+
+.s20 {
+    padding: 0 20px 0 0;
+}
+
+.inline {
+    display: inline;
+}
+
+.top.s4 {
+    padding: 4px 0 0;
+}
+
+.top.s8 {
+    padding: 8px 0 0;
+}
+
+.top.s12 {
+    padding: 12px 0 0;
+}
+
+.top.s16 {
+    padding: 16px 0 0;
+}
+
+.top.s20 {
+    padding: 20px 0 0;
+}

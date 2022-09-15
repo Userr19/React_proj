@@ -1,0 +1,24 @@
+.controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    position: relative;
+  }
+
+
+.circle:hover {
+  background-color: rgba(51, 51, 51, 0.1);
+}
+
+Menu:hover .circle{ /* ??? */
+  background-color: inherit;
+}

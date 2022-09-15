@@ -1,0 +1,7 @@
+@media all and (min-width: 1024px) {
+    .cardsList {
+      padding: 40px;
+      min-height: 400px;
+    }
+  }
+  

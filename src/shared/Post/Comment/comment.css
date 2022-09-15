@@ -1,0 +1,37 @@
+p {
+    margin: 0;
+}
+
+.IconBox {
+    display: inline-block;
+}
+
+.container {
+    display: flex;
+}
+
+.container {
+    padding: 38px 0;
+}
+
+.avatar {
+    margin: 0 21px 7px;
+    margin-bottom: 0;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.comment {
+    margin: 11px 0 0 21px;
+}
+
+.name {
+    color: #CC6633;
+}
+
+.controllBox {
+    display: flex;
+    gap: 27px;
+}

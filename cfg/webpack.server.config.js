@@ -1,7 +1,10 @@
+const { DefinePlugin } = require('webpack')
+
 const path = require("path");
 const nodeExternals = require('webpack-node-externals');
 
 const NODE_ENV = process.env.NODE_ENV;
+const GLOBAL_CSS_REGEXP = /\.global.css$/;
 
 module.exports = {
     mode: NODE_ENV ? NODE_ENV : 'development',
@@ -21,7 +24,7 @@ module.exports = {
               use: ['ts-loader'],
             },
             {
-                test: /\.less$/,
+                test: /\.css$/,
                 use: [
                     {
                         loader:'css-loader',
@@ -33,8 +36,13 @@ module.exports = {
                             onlyLocals: true,
                         }
                     },
-                    'less-loader'
-                ]
+                    // 'less-loader'
+                ],
+                exclude: GLOBAL_CSS_REGEXP,
+            },
+            {
+                test: GLOBAL_CSS_REGEXP,
+                use: ['css-loader']
             }
         ]
     },
@@ -42,4 +50,5 @@ module.exports = {
     optimization: {
         minimize: false,
       },
+      plugins: [ new DefinePlugin({'process.env.CLIENT_ID': `'${process.env.CLIENT_ID}'` }) ]
 }

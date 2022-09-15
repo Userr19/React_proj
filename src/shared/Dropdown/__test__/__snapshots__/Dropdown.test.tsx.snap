@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown [Should render (snapshot) 1`] = `ShallowWrapper {}`;
+
+exports[`Dropdown Should render (snapshot) 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="btn"
+    onClick={[Function]}
+  >
+    <button />
+  </div>
+  <div
+    className="karma"
+  >
+    <div />
+  </div>
+</div>
+`;
