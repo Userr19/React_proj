@@ -1,5 +1,6 @@
 .searchBlock {
     display: flex;
+    gap: 45px;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;

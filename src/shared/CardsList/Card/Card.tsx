@@ -1,15 +1,14 @@
 import React from 'react';
 import { generateId } from '../../../utils/react/GenerateRandomIndex';
-import { Dropdown } from '../../Dropdown';
-import { Icon } from '../../Icon';
+import { Dropdown } from '../../Dropdown/Dropdown';
+import { Icon } from '../../Icon/Icon';
 import { DropIcon } from '../../icons/DropIcon';
 import { Coments, Complain, Cover, Save, Share } from '../../icons/ListIcons';
-import { EBacks, Ecolors, MenuItem } from '../../MenuItem';
+import { EBacks, Ecolors, MenuItem } from '../../MenuItem/MenuItem';
 import styles from './card.css';
-import { Karma } from './Controls/Karma';
-import { GeneericList } from './Controls/Menu';
+import { Karma } from './Controls/Karma/Karma';
 
-const LIST = [
+export const LIST = [
   {
     text: 'Комментарии',
     svg: <Coments />,

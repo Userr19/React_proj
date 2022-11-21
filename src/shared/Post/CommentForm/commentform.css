@@ -1,0 +1,36 @@
+.form {
+    position: relative;
+    width: inherit;
+}
+
+.areaDescr {
+    z-index: 10;
+    position: absolute;
+    top: 16px;
+    left: 18px;
+}
+
+.comment {
+    z-index: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 16px 18px;
+}
+
+.userName {
+    color: #CC6633
+}
+
+.button {
+    background: #CC6633;
+    border-radius: 0px 0px 3px 0px;
+    color: #fff;
+    padding: 17px 50px;
+}

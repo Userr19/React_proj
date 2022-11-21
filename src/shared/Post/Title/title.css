@@ -1,0 +1,9 @@
+.title {
+    font-weight: 400;
+    font-size: 20px;
+    color: #333;
+}
+
+.postLink:hover {
+    color: #CC6633;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import { GeneericList } from './Menu';
 import styles from './controls.css';
-import { Karma } from './Karma';
+import { Karma } from './Karma/Karma';
 import { assignId, generateId, generateRandomString } from '../../../../utils/react/GenerateRandomIndex';
 import { merge } from '../../../../utils/js/merge';
 

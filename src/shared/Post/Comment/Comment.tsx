@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Break } from '../../Break';
 import { award } from '../../context/ModalContext';
 import { Complain, Share } from '../../icons';
 import { AnswerIcon, CommentIcon } from '../../icons/CommentsIcon';
 import { Answer } from './Answer';
 import { AnswerForm } from './AnswerForm';
+import { AnswerNonControl } from './AnswerNonControl';
 import styles from './comment.css';
 
 
 export function Comment({ static_icon_url, description, name }: award) {
   const [isFormOpen, setIsFormOpen] = useState(false)
-
+  // const ref = useRef<HTMLTextAreaElement>(null)
   return (
     <div>
       <div className={styles.container}>
@@ -25,7 +26,11 @@ export function Comment({ static_icon_url, description, name }: award) {
         </div>
       </div>
       <div className={styles.controllBox}>
-        <Answer onClick={() => { setIsFormOpen(true) }} />
+        <Answer onClick={() => { 
+          setIsFormOpen(true);
+          // ref.current && ref.current.focus(); 
+        }
+          } />
         <div>
           <div>
             <Share />
@@ -46,7 +51,7 @@ export function Comment({ static_icon_url, description, name }: award) {
         </div>
       </div>
       {
-        isFormOpen && <AnswerForm name={name}/>
+        isFormOpen && <><AnswerForm name={name}/><AnswerNonControl name={name}/></>
       }
     </div>
   );

@@ -1,5 +1,4 @@
-import React, { ReactComponentElement } from 'react';
-import { generateRandomString } from '../../../../../utils/react/GenerateRandomIndex';
+import React from 'react';
 import styles from './genericlist.css';
 
 interface Iitem {

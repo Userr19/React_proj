@@ -1,21 +1,22 @@
 import React from 'react';
 import { usePosts } from '../../hooks/usePosts';
-import { generateId, generateRandomString } from '../../utils/react/GenerateRandomIndex';
-import { Post } from '../Post';
+import { ModalContext } from '../context/ModalContext';
+import { Post } from '../Post/Post';
 import styles from './cardslist.css';
 
 
 export function CardsList() {
   const [Posts] = usePosts();
-  debugger
-  // Posts.map(generateId);
   return (
     <ul className={styles.cardsList}>
       {Posts? Posts.map(child => {  
-        console.log(child);
-        console.log("hho");
-        child.key = generateRandomString()    
-        return <Post {...child}/>
+        child.key = child.id;
+            
+        return (
+          <ModalContext.Provider  key={child.key} value={child}>
+              <Post {...child}/>
+          </ModalContext.Provider>
+          )
       }) : <div></div>}
     </ul>
   );

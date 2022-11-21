@@ -14,6 +14,7 @@ function setupDevtool() {
     if (IS_DEV) return 'eval';
     if (IS_PROD) return false;
 }
+
 module.exports = {
     resolve: {
         extensions: [

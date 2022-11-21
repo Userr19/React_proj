@@ -4,3 +4,9 @@
     gap: 7px;
     align-items: center;
   }
+
+.counter2 {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}  
