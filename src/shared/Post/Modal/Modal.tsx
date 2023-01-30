@@ -11,7 +11,7 @@ import { CommentFormContainer } from '../CommentFormContainer';
 export function Modal({ onClose }: IModalContextData) {
   const { title, selftext, all_awardings } = useContext(ModalContext)
   const ref = useRef<HTMLDivElement>(null)
-  
+
   useEffect(() => {
     function handleClick(event: MouseEvent) {
       if (event.target instanceof Node && !ref.current?.contains(event.target))
@@ -22,7 +22,7 @@ export function Modal({ onClose }: IModalContextData) {
       document.removeEventListener("click", handleClick);
     }
   }, []);
-  
+
   const node = document.querySelector("#modal_root");
   if (!node) {
     return null;
@@ -45,7 +45,7 @@ export function Modal({ onClose }: IModalContextData) {
       <CommentFormContainer />
       {all_awardings?.map(award => {
         return (
-            <Comment {...award} key={generateRandomString()}/>
+          <Comment {...award} key={generateRandomString()} />
         )
       })}
     </div>), node

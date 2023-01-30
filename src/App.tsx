@@ -11,8 +11,9 @@ import { useToken } from "./hooks/useToken";
 import { applyMiddleware, createStore } from "redux";
 import { Provider, useDispatch } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { rootReducer, setToken } from "../store/reducer";
 import thunk from "redux-thunk";
+import { rootReducer } from "../store/reducer";
+import { setTokenThunk } from "../store/token/actions";
 
 const store = createStore(rootReducer, composeWithDevTools(
     applyMiddleware(thunk),
@@ -22,9 +23,9 @@ function AppComponent() {
     const [token] = useToken();
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(setToken(token));
+        dispatch(setTokenThunk(token));
     }, [token]);
-    
+
     return (
         <Layout>
             <Header />

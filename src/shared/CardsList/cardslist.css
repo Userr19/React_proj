@@ -1,7 +1,38 @@
 @media all and (min-width: 1024px) {
-    .cardsList {
-      padding: 40px;
-      min-height: 400px;
-    }
+  .cardsList {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
   }
-  
+
+  .error {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(255, 60, 0);
+    text-align: center;
+  }
+
+  .loading {
+    color: rgb(244, 188, 85);
+    font-size: 20px;
+  }
+
+  .button {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 15px 25px;
+    border-radius: 10px;
+    background-color: rgb(188, 105, 41);
+    color: #fff;
+    margin: 0 auto;
+    border: 1px solid #fff;
+    transition: all .2s;
+  }
+
+  .button:hover {
+    color: rgb(188, 105, 41);
+    background-color: #fff;
+    border-color: rgb(188, 105, 41);
+  }
+}

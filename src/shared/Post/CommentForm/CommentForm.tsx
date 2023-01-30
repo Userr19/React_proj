@@ -1,32 +1,40 @@
-import React, { ChangeEvent, FormEvent, useContext } from 'react';
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { RootState, updateComment } from '../../../../store/reducer';
+import { Formik } from 'formik';
+import React, { ChangeEvent, FormEvent } from 'react';
 import styles from './commentform.css';
 
 interface ICommentFormProps {
   value: string,
-  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void,
-  onSubmit: (event: FormEvent<Element>) => void,
+  handleChange: (event: ChangeEvent<HTMLTextAreaElement>) => void,
+  handleSubmit: (event: FormEvent<Element>) => void,
+  valueError: string,
+  Touched: boolean,
 }
 
-export function CommentForm({value, onChange, onSubmit}: ICommentFormProps) {
+export function CommentForm({ value, handleChange, handleSubmit, valueError, Touched }: ICommentFormProps) {
+  function validateValue() {
+    if (value.length <= 7) return { text: "Вводите больше 7-и символов", hasProblem: true };
+    return { text: "", hasProblem: false };
+  }
   return (
-    <form className={styles.form} onSubmit={onSubmit}>
-      {/* <div className={styles.areaDescr}>
-        <span className={styles.userName}>
-          Константин,
-        </span>
-        <Break size={8} inline />
-        <span className={styles.descr}>
-           оставьте ваш комментарий
-        </span>
-      </div> */}
-      <div className={styles.comment}>
-        <textarea className={styles.textarea} name="comment" value={value} onChange={onChange}>
-        
-        </textarea>
-      </div>
-      <button type='submit' className={styles.button}>Комментировать</button>
-    </form>
+    <div>
+      <Formik
+        initialValues={{ value, valueError }}
+        validate={validateValue}
+        onSubmit={() => {
+        }}
+      >
+        {({
+        }) => (
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <div className={styles.comment}>
+              <textarea className={styles.textarea} name="comment" aria-invalid={valueError ? "true" : undefined} value={value} onChange={handleChange}>
+              </textarea>
+              {Touched && valueError && (<div>{valueError}</div>)}
+            </div>
+            <button type='submit' className={styles.button} disabled={Touched && validateValue().hasProblem} >Комментировать</button>
+          </form>
+        )}
+      </Formik>
+    </div>
   );
 }

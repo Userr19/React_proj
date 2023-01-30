@@ -19,12 +19,14 @@ export const meReducer: Reducer<MeState, MeActions> = (state, action) => {
         case ME_REQUEST_ERROR:
             return {
                 ...state,
-                error: action.error
+                error: action.error,
+                loading: false
             }        
         case ME_REQUEST_SUCCESS: 
             return {
                 ...state,
-                data: action.data
+                data: action.data,
+                loading: false
             }
         default:
             return state;
