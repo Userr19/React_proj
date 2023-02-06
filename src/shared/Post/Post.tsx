@@ -1,4 +1,5 @@
 import React from 'react';
+import { IPostState } from '../../../store/list/actions';
 import { Karma } from '../CardsList/Card/Controls/Karma';
 import { Dropdown } from '../Dropdown';
 import { DropIcon } from '../icons';
@@ -6,30 +7,21 @@ import { Menu } from '../Menu';
 import styles from './post.css';
 import { Title } from './Title';
 
-export interface IPostProps {
-  id: string;
-  author?: string,
-  url?: string,
-  title: string,
-  //   onClose: () => void
-}
 
 const defaultLink = "https://cdn5.vectorstock.com/i/1000x1000/27/89/user-account-flat-icon-vector-14992789.jpg";
-export function Post({ title, url = defaultLink, author }: IPostProps) {
-
-  if (url && (!url.endsWith(".jpg") && !url.endsWith(".gif"))) {
-    url = defaultLink;
+export function Post({ title, author, thumbnail, id }: IPostState) {
+  if (thumbnail == "self") {
+    thumbnail = defaultLink;
   }
-
   return (
     <li className={styles.card}>
       <div className={styles.cardContainer}>
-        <img src={url} className={styles.image} />
+        <img src={thumbnail} className={styles.image} />
         <div className={styles.texts}>
-          <Title title={title} />
+          <Title title={title} id={id} />
           <div className={styles.descr}>
             <span className={styles.time}>опубликовано 4 часа назад</span>
-            <img className={styles.avatar} src={url} />
+            <img className={styles.avatar} src={thumbnail} />
             <a href="#user-x" className={styles.userName}>{author}</a>
           </div>
         </div>

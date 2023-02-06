@@ -1,21 +1,15 @@
-import axios from "axios";
-import { useState, useEffect, useContext } from "react";
-import { useSelector } from "react-redux";
-import { IPostProps } from "../shared/Post";
+import { useEffect } from "react";
 import { RootState } from "../../store/reducer";
-import { tokenState } from "../../store/token/actions";
-
-type IPostsData = IPostProps[];
+import { postRequestAsync } from "../../store/list/actions";
+import { IChild } from "../../store/list/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 export function usePosts() {
-    const token = useSelector<RootState, string>(store => store.token.token)
-    const [Posts, setPosts] = useState<IPostsData>([]);
+    const dispatch = useDispatch()
+    const token = useSelector<RootState, string>(store => store.token.token);
+    const Posts = useSelector<RootState, Array<IChild>>(store => store.list.children);
     useEffect(() => {
-        axios.get('https://oauth.reddit.com/best.json?sr_detail=true', {
-            headers: { Authorization: `bearer ${token}` }
-        }).then((resp) => {
-            setPosts(resp.data.data.children.map((c: any) => c.data))
-        }).catch(console.log);
+        dispatch(postRequestAsync());
     }, [token]);
     return [Posts];
 }

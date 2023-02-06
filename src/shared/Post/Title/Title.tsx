@@ -1,24 +1,18 @@
-import React, { useState } from 'react';
-import { Modal } from '../Modal';
+import React from 'react';
 import styles from './title.css';
+import { Link } from 'react-router-dom'
 
 interface ITileProps {
-  title?: string,
+  title: string,
+  id: string
 }
 
-export function Title({title}: ITileProps) {
-  const [isModalOpened, setIsModalOpened] = useState(false);
+export function Title({ title, id }: ITileProps) {
   return (
     <h2 className={styles.title}>
-      <a href="#post-url" className={styles.postLink} onClick={(ev) => {
-        ev.preventDefault()
-        setIsModalOpened(true);
-      }}>
+      <Link className={styles.postLink} to={`/posts/${id}`}>
         {title}
-      </a>
-      {
-        isModalOpened && <Modal title={title} onClose={() => {setIsModalOpened(false)}}/>
-      }
+      </Link>
     </h2>
   );
 }

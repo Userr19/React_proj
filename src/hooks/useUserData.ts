@@ -9,10 +9,8 @@ export function useUserData() {
   const loading = useSelector<RootState, boolean>(state => state.me.loading);
   const dispatch = useDispatch();
   useEffect(() => {
-
     if (!token) return;
     dispatch(meRequestAsync())
-
   }, [token]);
   return {
     data,
