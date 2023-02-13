@@ -46,7 +46,6 @@ function AppComponent() {
                 <Header />
                 <Content>
                     <Routes>
-                        <Route path="*" element={<NotFound />} />
                         <Route path="/posts" element={<CardsListContainer />} />
                         <Route path="/posts/:id" element={<Modal />} />
                         <Route path="/" element={<Navigate replace to="/posts" />} />
